@@ -12,16 +12,5 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   # root "posts#index"
 
-  get "/products", to: "products#index" # INDEX - Shows all the records
-
-  get "/products/new", to: "products#new" # NEW - Renders a form for creating a new record 
-  post "/products", to: "products#create" # CREATE - Processes the new form submission, handling errors and creating the record
-
-  get "/products/:id", to: "products#show" # SHOW - Renders a specific record for viewing
-
-  get "/products/:id/edit", to: "products#edit" # EDIT - Renders a form for updating a specific record
-  patch "/products/:id", to: "products#update" # UPDATE (Full) - Handles the edit form submission, handling errors and updating the entire record, and typically triggered by a PUT request
-  put "/products/:id", to: "products#update" # UPDATE (Partial) - Handles the edit for submission, handling errors and updating specific attributes of the record, and typically triggered by a PATCH request
-
-  delete "products/:id", to: "products#destroy" # DESTROY - Handles deleting a specific record
+  resources :products
 end
